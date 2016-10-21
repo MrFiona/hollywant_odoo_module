@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <record id="view_api_update_version_tree" model="ir.ui.view">
+        <field name="name">app版本更新</field>
+        <field name="model">api.update.way</field>
+        <field name="arch" type="xml">
+            <tree string="app版本更新">
+                <field name="remarks"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_api_update_version_lines1_form" model="ir.ui.view">
+        <field name="name">update</field>
+        <field name="model">api.update.ios</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="APP版本更新">
+                <group>
+                <field name="channel_number"/>
+                <field name="system_type" readonly="1"/>
+                <field name="update_date"/>
+                <field name="update_size"/>
+                <field name="version"/>
+                <field name="update_note"/>
+                <field name="update_title"/>
+                <field name="update_url"/>
+                <field name="update_interval"/>
+                <field name="update_limittimes"/>
+                <field name="power_update"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_api_update_version_lines2_form" model="ir.ui.view">
+        <field name="name">update</field>
+        <field name="model">api.update.android</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="APP版本更新">
+                <group>
+                <field name="channel_number"/>
+                <field name="system_type" readonly="1"/>
+                <field name="update_date" />
+                <field name="update_size"/>
+                <field name="version"/>
+                <field name="update_note"/>
+                <field name="update_title"/>
+                <field name="update_url"/>
+                <field name="update_interval"/>
+                <field name="update_limittimes"/>
+                <field name="power_update"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_api_update_version_form" model="ir.ui.view">
+        <field name="name">update</field>
+        <field name="model">api.update.way</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="APP版本更新">
+                <group col="2">
+                    <field name="remarks"></field>
+                </group>
+                <notebook>
+                    <page string="iOS">
+                        <field name='update_special'>
+                            <tree>
+                                <field name="channel_number"/>
+                                <field name="system_type" readonly="1"/>
+                                <field name="update_date"/>
+                                <field name="update_size"/>
+                                <field name="version"/>
+                                <field name="update_note"/>
+                                <field name="update_title"/>
+                                <field name="update_url"/>
+                                <field name="update_interval"/>
+                                <field name="update_limittimes"/>
+                                <field name="power_update"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Android">
+                        <field name="update_general">
+                            <tree>
+                                <field name="channel_number"/>
+                                <field name="system_type" readonly="1"/>
+                                <field name="update_date"/>
+                                <field name="update_size"/>
+                                <field name="version"/>
+                                <field name="update_note"/>
+                                <field name="update_title"/>
+                                <field name="update_url"/>
+                                <field name="update_interval"/>
+                                <field name="update_limittimes"/>
+                                <field name="power_update"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hollwant_api_update_version" model="ir.actions.act_window">
+        <field name="name">APP版本更新</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">api.update.way</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hollywant_api_update_version_menu"
+              name="APP版本更新" parent="base.menu_administration"
+              action="action_hollwant_api_update_version"
+              sequence="10"/>
+</openerp>
